@@ -30,7 +30,10 @@ body {
     font-weight: bold;
     color: white;
     text-align: right;
-
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: end;
 }
 
 .buttons {

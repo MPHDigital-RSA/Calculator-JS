@@ -1,28 +1,31 @@
 const buttons = document.querySelectorAll("button");
 const screen = document.querySelector(".screen")
 
+let numbers = [];
 
 // for each button set an event listner
 buttons.forEach((button) => {
     button.addEventListener('click', () => {
-       
-        const currentValue = screen.textContent;
-        console.log(currentValue)
-        const buttonValue = button.dataset.value;
-        
 
-        
+        const buttonValue = button.dataset.value;
+    
         // check which button is pressed
 
         if (buttonValue === "c" ){
             // clear button pressed
             clearScreen();
+            numbers = [];
         }else if(buttonValue === "=" ){
             // equal button pressed
-            alert("equal")
+            logData(sum(numbers))
         }else if(buttonValue === "+" ){
-            // plus button pressed
-            alert("plus")
+            // when you press the add button clear the save the value to an array and clear the screen
+
+            const screenValue = screen.textContent;
+            numbers.push(screenValue)
+            clearScreen();
+            console.log(numbers)
+
         }else if(buttonValue === "×" ){
             // multiply button pressed
             alert("multiply")
@@ -33,14 +36,10 @@ buttons.forEach((button) => {
             // minus button pressed
             alert("minus")
         }else{
-            console.log(button.dataset.value)
-            logData(button.dataset.value) 
+            logData(button.dataset.value)      
         }
-
-        
     })
 })
-
 
 // FUNCTIONS HERE!!
 
@@ -51,7 +50,29 @@ const logData = (val) =>{
 }
 
 // add function
-const add = () => {
+const sum = (arr) => {
+
+    // check if the arr is an array if not return false.
+    if(toString.call(arr) !== "[object Array]") return false;
+
+    let total = 0;
+
+    // iterate through the input array
+    for( let i = 0; i < arr.length; i++){
+
+        // if element is not a number skip to the next
+        if(isNaN(arr[1])){
+            continue;
+        }
+
+        // add the numeric value of the element to the total
+
+        total += Number(arr[i]);
+    }
+
+    // return the total sum
+    return total;
+
 }
 
 // subtract function
@@ -71,5 +92,5 @@ const equals = () => {
 }
 
 const clearScreen = () => {
-    screen.innerText = "0";
+    screen.innerText = "";
 }
