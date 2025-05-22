@@ -107,7 +107,7 @@ button[data-value="×"] {
 button[data-value="c"] {
     grid-area: clear;
     background-color: rgba(251, 140, 140, 0.481);
-    color: #282828;
+    color: #fff;
 }
 
 button[data-value="0"] {

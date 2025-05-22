@@ -17,26 +17,10 @@ buttons.forEach((button) => {
             numbers = [];
         }else if(buttonValue === "=" ){
             // equal button pressed
-            logData(sum(numbers))
-        }else if(buttonValue === "+" ){
-            // when you press the add button clear the save the value to an array and clear the screen
-
-            const screenValue = screen.textContent;
-            numbers.push(screenValue)
-            clearScreen();
-            console.log(numbers)
-
-        }else if(buttonValue === "×" ){
-            // multiply button pressed
-            alert("multiply")
-        }else if(buttonValue === "÷" ){
-            // devide button pressed
-            alert("divide")
-        }else if(buttonValue === "-" ){
-            // minus button pressed
-            alert("minus")
+            total(screen.innerHTML);
         }else{
-            logData(button.dataset.value)      
+            // if any button is pressed except the equal and clear all button
+            logData(buttonValue)      
         }
     })
 })
@@ -49,46 +33,11 @@ const logData = (val) =>{
     screen.innerHTML = currentValue + val;
 }
 
-// add function
-const sum = (arr) => {
-
-    // check if the arr is an array if not return false.
-    if(toString.call(arr) !== "[object Array]") return false;
-
-    let total = 0;
-
-    // iterate through the input array
-    for( let i = 0; i < arr.length; i++){
-
-        // if element is not a number skip to the next
-        if(isNaN(arr[1])){
-            continue;
-        }
-
-        // add the numeric value of the element to the total
-
-        total += Number(arr[i]);
-    }
-
-    // return the total sum
-    return total;
-
-}
-
-// subtract function
-const subtract = () => {
-}
-
-// multiply function
-const multiply = () => {
-}
-
-// divide function
-const divide = () => {
-}
-
-// equals function
-const equals = () => {
+// total function that runs when the equal sign is pressed!
+const total = (value) => {
+    const sum = eval(value);
+    clearScreen();
+    logData(sum);
 }
 
 const clearScreen = () => {
