@@ -1,5 +1,7 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
 * {
-    font-family: 'Courier New', Courier, monospace;
+    font-family: "Courier Prime", monospace;
 }
 
 h1 {
@@ -15,6 +17,7 @@ h1 span {
 }
 
 body {
+
     background-color: rgb(0, 0, 0);
     display: flex;
     flex-direction: column;
